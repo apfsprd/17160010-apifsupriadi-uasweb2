@@ -18,7 +18,15 @@ class Admin extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+	public function __construct()
+    {
+        parent::__construct();
+            if($this->session->userdata('hak_akses')=="user"){
+                redirect('auth'); 
+            }
 
+	}
+	
 	public function index()
 	{
         $data['titles'] = 'Beranda Admin';
